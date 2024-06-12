@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Barlow Semi Condensed";
+}
+body{
+    background-color: hsl(210, 46%, 95%);
+}
+div[class*="one"]{
+    background: url(../images/bg-pattern-quotation.svg) no-repeat 80% 0 hsl(263, 55%, 52%);
+    grid-area: da;
+    
+    
+}
+div[class*="two"]{
+    background-color: hsl(217, 19%, 35%);
+    grid-area: jo;
+   
+    
+}
+div[class*="three"]{
+    background-color: hsl(0, 0%, 100%);
+    grid-area: je;
+   
+    
+}
+div[class*="four"]{
+    background-color: hsl(219, 29%, 14%);
+    grid-area: pa;
+    
+    
+}
+div[class*="five"]{
+    background-color: hsl(0, 0%, 100%);
+    grid-area: ki;
+    
+   
+}
+div[class*="profile"]{
+    display: flex;
+}
+img{
+    border-radius: 50%;
+    width: 30px;
+    margin-right: 20px;
+    border: 2px solid white;
+}
+div[class*="testimonial-container"]{
+    padding: 20px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px #777777;
+}
+div[class*="name"]{
+   font-weight: 500;
+}
+.one,.two,.four{
+    color: white;
+}
+.three,.five{
+    background-color: hsl(0, 0%, 81%);
+    color: hsl(217, 19%, 35%);
+}
+div[class*="graduate"]{
+   opacity: 50%;
+}
+div[class*="testimony"]{
+    opacity: 70%;
+    font-size: 13px;
+    
+
+}
+h5{
+    font-size: 17px;
+}
+.container{
+    display: grid;
+    padding:8rem;
+    
+    gap: 20px;
+    grid-template-areas: 
+    "da da da da da da jo ki"
+    "da da da da da da jo ki"
+    "je pa pa pa pa pa pa ki";
+   
+    
+}
+div[class*="profile"]{
+    margin-bottom: 10px;
+}
+div[class*="testimonial-header"]{
+    margin-bottom: 10px;
+    
+}
+/* @media screen and (min-width: 500px) {
+    .container{
+        grid-template-areas: 
+        "ni ni ni tr tr tr na na"
+        "an an ra ra ra ra ra ra";
+    }
+    div[class*="one"]{
+        grid-area: ni;
+    }
+    div[class*="two"]{
+        grid-area: na;
+    }
+    div[class*="three"]{
+        grid-area: an;
+    }
+    div[class*="four"]{
+        grid-area: tr;
+    }
+    div[class*="five"]{
+        grid-area: ra;
+       
+    }
+  } */
