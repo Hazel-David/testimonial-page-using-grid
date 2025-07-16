@@ -56,9 +56,31 @@ body {
 
 /* Individual Card Styles */
 .daniel {
-    background: var(--color-primary-violet) url('./images/bg-pattern-quotation.svg') no-repeat top 0 right 5rem;
+    background-color: var(--color-primary-violet);
+    background-image: url('./images/bg-pattern-quotation.svg');
+    background-repeat: no-repeat;
+    background-position: top 0 right 1.5rem;
+    background-size: 104px;
     color: var(--color-white);
     grid-area: daniel;
+    position: relative;
+}
+
+.daniel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    pointer-events: none;
+}
+
+.daniel > * {
+    position: relative;
+    z-index: 1;
 }
 
 .jonathan {
@@ -171,6 +193,7 @@ body {
     
     .daniel {
         background-position: top 0 right 1.5rem;
+        background-size: 80px;
     }
 }
 
@@ -185,5 +208,9 @@ body {
     
     .testimonial-header {
         font-size: 1.125rem;
+    }
+    
+    .daniel {
+        background-size: 70px;
     }
 }
