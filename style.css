@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
 
-/* CSS Custom Properties */
+/* Clean, Elegant Variables */
 :root {
     --color-primary-violet: hsl(263, 55%, 52%);
     --color-dark-grayish-blue: hsl(217, 19%, 35%);
@@ -8,352 +8,182 @@
     --color-light-gray: hsl(0, 0%, 81%);
     --color-light-grayish-blue: hsl(210, 46%, 95%);
     --color-white: hsl(0, 0%, 100%);
-    --color-accent: hsl(343, 84%, 61%);
     
-    --font-family-primary: "Barlow Semi Condensed", sans-serif;
-    --font-size-small: 0.8125rem;
-    --font-size-base: 0.9375rem;
-    --font-size-large: 1.125rem;
-    --font-size-xl: 1.5rem;
-    --font-size-2xl: 2rem;
-    
-    --border-radius: 0.75rem;
-    --border-radius-full: 50%;
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
-    --spacing-2xl: 4rem;
-    
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
-    
-    --transition-fast: 0.15s ease-in-out;
-    --transition-normal: 0.3s ease-in-out;
-    --transition-slow: 0.5s ease-in-out;
+    --font-family: "Barlow Semi Condensed", sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
 }
 
-/* Reset and Base Styles */
-*, *::before, *::after {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font-family-primary);
-    background: linear-gradient(135deg, var(--color-light-grayish-blue) 0%, #e3ebf0 100%);
-    color: var(--color-dark-grayish-blue);
-    line-height: 1.6;
-    font-size: var(--font-size-base);
-    min-height: 100vh;
-    padding: var(--spacing-md);
-}
-
-/* Page Header */
-.page-header {
-    text-align: center;
-    margin-bottom: var(--spacing-2xl);
-    padding: var(--spacing-xl) var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-primary-violet), var(--color-dark-grayish-blue));
-    color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-lg);
-    grid-column: 1 / -1;
-}
-
-.page-header h1 {
-    font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-2xl));
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.page-header p {
-    font-size: var(--font-size-large);
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
+    font-family: var(--font-family);
+    background-color: var(--color-light-grayish-blue);
+    padding: 5rem 1.5rem;
+    line-height: 1.5;
 }
 
 /* Container Grid */
 .container {
     display: grid;
-    max-width: 1200px;
+    max-width: 1110px;
     margin: 0 auto;
-    gap: var(--spacing-md);
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 
-        "header header header header"
         "daniel daniel jonathan kira"
         "jeanette patrick patrick kira";
 }
 
 /* Testimonial Cards */
 .testimonial-card {
-    padding: var(--spacing-lg);
+    padding: 2rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-}
-
-.testimonial-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-    pointer-events: none;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.testimonial-card:hover::before {
-    opacity: 1;
-}
-
-.testimonial-card:focus-within {
-    outline: 3px solid var(--color-accent);
-    outline-offset: 2px;
-}
-
-/* Individual Card Styling */
+/* Individual Card Styles */
 .daniel {
-    background: linear-gradient(135deg, var(--color-primary-violet), hsl(263, 55%, 45%)) 
-                url('./images/bg-pattern-quotation.svg') no-repeat 85% 0;
-    background-size: 150px;
+    background: var(--color-primary-violet) url('./images/bg-pattern-quotation.svg') no-repeat top 0 right 5rem;
     color: var(--color-white);
     grid-area: daniel;
 }
 
 .jonathan {
-    background: linear-gradient(135deg, var(--color-dark-grayish-blue), hsl(217, 19%, 30%));
+    background-color: var(--color-dark-grayish-blue);
     color: var(--color-white);
     grid-area: jonathan;
 }
 
 .jeanette {
-    background: linear-gradient(135deg, var(--color-white), #f8f9fa);
+    background-color: var(--color-white);
     color: var(--color-dark-grayish-blue);
     grid-area: jeanette;
-    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .patrick {
-    background: linear-gradient(135deg, var(--color-dark-blackish-blue), hsl(219, 29%, 10%));
+    background-color: var(--color-dark-blackish-blue);
     color: var(--color-white);
     grid-area: patrick;
 }
 
 .kira {
-    background: linear-gradient(135deg, var(--color-white), #f8f9fa);
+    background-color: var(--color-white);
     color: var(--color-dark-grayish-blue);
     grid-area: kira;
-    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Profile Section */
 .profile {
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1.125rem;
 }
 
 .profile-picture {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--border-radius-full);
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    margin-right: var(--spacing-md);
-    transition: transform var(--transition-fast);
-    object-fit: cover;
-}
-
-.testimonial-card:hover .profile-picture {
-    transform: scale(1.1);
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-.credentials {
-    flex: 1;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-right: 1rem;
 }
 
 .name {
-    font-size: var(--font-size-large);
-    font-weight: 600;
-    margin-bottom: 2px;
-    line-height: 1.2;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1;
 }
 
 .graduate {
-    font-size: var(--font-size-small);
-    opacity: 0.7;
-    font-weight: 400;
+    font-size: 0.6875rem;
+    opacity: 0.5;
 }
 
-/* Blockquote and Content */
-blockquote {
-    border: none;
-}
-
+/* Content */
 .testimonial-header {
-    font-size: var(--font-size-large);
+    font-size: 1.25rem;
     font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: var(--spacing-md);
-    position: relative;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 .testimony {
-    font-size: var(--font-size-small);
-    opacity: 0.8;
-    line-height: 1.7;
-    position: relative;
-}
-
-.testimony::before {
-    content: '"';
-    font-size: 3rem;
-    position: absolute;
-    top: -1rem;
-    left: -0.5rem;
-    opacity: 0.3;
-    font-family: Georgia, serif;
+    font-size: 0.8125rem;
+    opacity: 0.7;
+    line-height: 1.4;
 }
 
 /* Attribution */
 .attribution {
+    font-size: 11px;
     text-align: center;
-    margin-top: var(--spacing-xl);
-    padding: var(--spacing-md);
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: var(--border-radius);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.attribution p {
-    font-size: var(--font-size-small);
+    margin-top: 2rem;
     color: var(--color-dark-grayish-blue);
 }
 
 .attribution a {
     color: var(--color-primary-violet);
     text-decoration: none;
-    font-weight: 600;
-    transition: color var(--transition-fast);
 }
 
 .attribution a:hover {
-    color: var(--color-accent);
     text-decoration: underline;
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .container {
+        grid-template-columns: repeat(3, 1fr);
         grid-template-areas: 
-            "header header"
-            "daniel daniel"
-            "jonathan kira"
-            "jeanette patrick"
-            "patrick patrick";
-    }
-    
-    .page-header {
-        padding: var(--spacing-lg) var(--spacing-md);
+            "daniel daniel jonathan"
+            "jeanette patrick patrick"
+            "kira kira kira";
     }
 }
 
 @media (max-width: 768px) {
     body {
-        padding: var(--spacing-sm);
+        padding: 4.5rem 1.5rem;
     }
     
     .container {
         grid-template-columns: 1fr;
         grid-template-areas: 
-            "header"
             "daniel"
             "jonathan"
             "jeanette"
             "patrick"
             "kira";
-        gap: var(--spacing-sm);
-    }
-    
-    .testimonial-card {
-        padding: var(--spacing-md);
-    }
-    
-    .page-header {
-        padding: var(--spacing-md);
-        margin-bottom: var(--spacing-lg);
+        gap: 1.5rem;
     }
     
     .daniel {
-        background-size: 100px;
-        background-position: 90% 0;
+        background-position: top 0 right 1.5rem;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
+    body {
+        padding: 4.5rem 1.5rem;
+    }
+    
     .testimonial-card {
-        padding: var(--spacing-sm) var(--spacing-md);
-    }
-    
-    .profile-picture {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .name {
-        font-size: var(--font-size-base);
+        padding: 1.5rem;
     }
     
     .testimonial-header {
-        font-size: var(--font-size-base);
-    }
-    
-    .daniel {
-        background-size: 80px;
-        background-position: 95% 0;
-    }
-}
-
-/* Accessibility Improvements */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-light-grayish-blue: hsl(220, 15%, 15%);
-        --color-white: hsl(220, 15%, 25%);
-        --color-light-gray: hsl(220, 15%, 35%);
-    }
-    
-    body {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    }
-    
-    .jeanette, .kira {
-        border-color: rgba(255, 255, 255, 0.1);
+        font-size: 1.125rem;
     }
 }
